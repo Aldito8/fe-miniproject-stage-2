@@ -1,0 +1,30 @@
+import {
+    Dialog, DialogTrigger, DialogContent, DialogHeader,
+    DialogTitle, DialogDescription
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { handleDeleteDeleteProduct } from "@/services/adminProduct";
+
+export function DeletePermanentDialog({ product }: { product: any }) {
+    return (
+        <Dialog>
+            <DialogTrigger asChild>
+                <Button variant="destructive">Delete Permanent</Button>
+            </DialogTrigger>
+            <DialogContent>
+                <DialogHeader>
+                    <DialogTitle>Delete Permanent Product?</DialogTitle>
+                    <DialogDescription>
+                        Are you sure to delete this product <span className="font-bold">{product.name}</span>?
+                    </DialogDescription>
+                </DialogHeader>
+                <Button
+                    variant="destructive"
+                    className="mt-4 w-full"
+                    onClick={() => handleDeleteDeleteProduct(product.id)}>
+                    Yes, Delete Permanent Product
+                </Button>
+            </DialogContent>
+        </Dialog>
+    );
+}
